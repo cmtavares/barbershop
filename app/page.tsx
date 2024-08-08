@@ -19,18 +19,21 @@ const Home = async () => {
   return (
     <div>
       <Header />
-      <div className="px-5 py-6">
-        <h2 className="text-xl font-bold">Olá, Carlos!</h2>
-        <p>Segunda-feira, 05 de Agosto</p>
+      <div className="px-5 py-6 lg:px-24 lg:pt-16">
+        <h2 className="text-xl font-bold lg:mb-1">Olá, Carlos!</h2>
+        <p className="text-sm font-normal">Segunda-feira, 05 de Agosto</p>
 
         <div className="mt-6 flex items-center gap-2">
-          <Input placeholder="Faça sua busca..." />
+          <Input
+            className="w-full lg:w-[324px] lg:px-3"
+            placeholder="Faça sua busca..."
+          />
           <Button>
             <SearchIcon />
           </Button>
         </div>
 
-        <div className="mt-6 flex gap-3 overflow-x-scroll [&::-webkit-scrollbar]:hidden">
+        <div className="mt-6 flex gap-3 overflow-x-scroll lg:hidden [&::-webkit-scrollbar]:hidden">
           {quickSearchOptions.map((option) => (
             <Button className="gap-2" variant="secondary" key={option.title}>
               <Image
