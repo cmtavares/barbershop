@@ -23,7 +23,7 @@ const SidebarSheet = () => {
   const handleLogoutClick = () => signOut()
 
   return (
-    <SheetContent className="overflow-y-auto">
+    <SheetContent className="overflow-y-auto [&::-webkit-scrollbar]:hidden">
       <SheetHeader>
         <SheetTitle className="text-left">Menu</SheetTitle>
       </SheetHeader>
