@@ -15,7 +15,7 @@ import {
 import { Calendar } from "./ui/calendar"
 import { ptBR } from "date-fns/locale"
 import { useEffect, useState } from "react"
-import { addDays, format, set } from "date-fns"
+import { format, set } from "date-fns"
 import { createBooking } from "../_actions/create-booking"
 import { useSession } from "next-auth/react"
 import { toast } from "sonner"
@@ -119,6 +119,17 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
       if (!selectedDay || !selectedTime) return
       const hour = Number(selectedTime.split(":")[0])
       const minute = Number(selectedTime.split(":")[1])
+
+      const isTimeInThePast =
+        set(new Date(), {
+          hours: hour,
+          minutes: minute,
+        }).getTime() < new Date().getTime()
+      if (isTimeInThePast) {
+        toast.error("Não é possível criar reserva para horário passado!")
+        return
+      }
+
       const newDate = set(selectedDay, {
         hours: hour,
         minutes: minute,
@@ -182,7 +193,7 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                       className="flex justify-center p-0"
                       mode="single"
                       locale={ptBR}
-                      fromDate={addDays(new Date(), 1)}
+                      fromDate={new Date()}
                       selected={selectedDay}
                       onSelect={handleDateSelect}
                       styles={{
