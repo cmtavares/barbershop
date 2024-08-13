@@ -62,16 +62,20 @@ const Home = async () => {
           <Search />
         </div>
 
-        <div className="hidden h-[151px] w-[439px] sm:block">
-          <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
-            Agendamentos
-          </h2>
-          <div className="flex gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden">
-            {confirmedBookings.map((booking) => (
-              <BookingItem key={booking.id} booking={booking} />
-            ))}
-          </div>
-        </div>
+        {confirmedBookings.length > 0 && (
+          <>
+            <div className="hidden h-[151px] w-[439px] sm:block">
+              <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
+                Agendamentos
+              </h2>
+              <div className="flex gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden">
+                {confirmedBookings.map((booking) => (
+                  <BookingItem key={booking.id} booking={booking} />
+                ))}
+              </div>
+            </div>
+          </>
+        )}
 
         <div className="mt-6 flex gap-3 overflow-x-scroll lg:hidden [&::-webkit-scrollbar]:hidden">
           {quickSearchOptions.map((option) => (
@@ -103,15 +107,19 @@ const Home = async () => {
           />
         </div>
 
-        <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400 lg:hidden">
-          Agendamentos
-        </h2>
+        {confirmedBookings.length > 0 && (
+          <>
+            <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400 lg:hidden">
+              Agendamentos
+            </h2>
 
-        <div className="flex gap-3 overflow-x-auto lg:hidden [&::-webkit-scrollbar]:hidden">
-          {confirmedBookings.map((booking) => (
-            <BookingItem key={booking.id} booking={booking} />
-          ))}
-        </div>
+            <div className="flex gap-3 overflow-x-auto lg:hidden [&::-webkit-scrollbar]:hidden">
+              {confirmedBookings.map((booking) => (
+                <BookingItem key={booking.id} booking={booking} />
+              ))}
+            </div>
+          </>
+        )}
 
         <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400 lg:mt-1">
           Recomendados
