@@ -36,10 +36,10 @@ const Search = () => {
           control={form.control}
           name="title"
           render={({ field }) => (
-            <FormItem className="w-full lg:w-[324px]">
+            <FormItem className="w-full lg:w-[375px]">
               <FormControl>
                 <Input
-                  className="w-full lg:w-[324px] lg:px-3"
+                  className="w-full lg:w-[372px] lg:px-3"
                   placeholder="Faça sua busca..."
                   {...field}
                 />

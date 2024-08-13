@@ -44,7 +44,7 @@ const Home = async () => {
   return (
     <div>
       <Header />
-      <div className="px-5 py-6 lg:px-24 lg:pt-16">
+      <div className="px-5 py-6 lg:bg-pattern lg:bg-auto lg:bg-no-repeat lg:px-24 lg:pt-16">
         <h2 className="text-xl font-bold lg:mb-1">
           Olá, {session?.user ? session.user.name : "bem vindo"}!
         </h2>
@@ -60,6 +60,17 @@ const Home = async () => {
 
         <div className="mt-6">
           <Search />
+        </div>
+
+        <div className="hidden h-[151px] w-[439px] sm:block">
+          <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
+            Agendamentos
+          </h2>
+          <div className="flex gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden">
+            {confirmedBookings.map((booking) => (
+              <BookingItem key={booking.id} booking={booking} />
+            ))}
+          </div>
         </div>
 
         <div className="mt-6 flex gap-3 overflow-x-scroll lg:hidden [&::-webkit-scrollbar]:hidden">
@@ -92,17 +103,17 @@ const Home = async () => {
           />
         </div>
 
-        <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
+        <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400 lg:hidden">
           Agendamentos
         </h2>
 
-        <div className="flex gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden">
+        <div className="flex gap-3 overflow-x-auto lg:hidden [&::-webkit-scrollbar]:hidden">
           {confirmedBookings.map((booking) => (
             <BookingItem key={booking.id} booking={booking} />
           ))}
         </div>
 
-        <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
+        <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400 lg:mt-1">
           Recomendados
         </h2>
         <div className="flex gap-4 overflow-auto [&::-webkit-scrollbar]:hidden">
