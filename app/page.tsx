@@ -24,9 +24,9 @@ const Home = async () => {
   const confirmedBookings = await getConfirmedBookings()
 
   return (
-    <div>
+    <div className="mx-auto max-w-screen-2xl">
       <Header />
-      <div className="px-5 py-6 lg:bg-pattern lg:bg-auto lg:bg-no-repeat lg:px-24 lg:pt-16">
+      <div className="px-5 py-6 lg:bg-pattern lg:bg-contain lg:bg-no-repeat lg:px-24 lg:pt-16">
         <h2 className="text-xl font-bold lg:mb-1">
           Olá, {session?.user ? session.user.name : "bem vindo"}!
         </h2>
