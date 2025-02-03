@@ -3,9 +3,9 @@ Barbershop is a modern platform designed to streamline barbershop scheduling and
 
 ## 📌 Features
 
-📅 **Easy Appointment Scheduling** - Allow customers to book and manage their appointments effortlessly.
-💈 **Barber Management** - Organize barbers' schedules and availability.
-🔐 **Authentication with Google** - Secure login with Google OAuth.
+📅 **Easy Appointment Scheduling** - Allow customers to book and manage their appointments effortlessly.\
+💈 **Barber Management** - Organize barbers' schedules and availability.\
+🔐 **Authentication with Google** - Secure login with Google OAuth.\
 📱 **Responsive Design** - Optimized for all devices.
 
 ## 🚀 How to Run
